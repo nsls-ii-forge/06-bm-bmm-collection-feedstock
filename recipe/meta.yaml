@@ -1,0 +1,35 @@
+{% set name = "06-bm-bmm-collection" %}
+{% set year = "2019" %}
+{% set cycle = "3" %}
+{% set version = "0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ year }}C{{ cycle }}.{{ version }}
+
+build:
+  number: 0
+  skip: True  # [py<36]
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+    - ansiwrap
+    - inflection
+    - toml
+    - xraylarch
+
+test:
+  imports:
+    - ansiwrap
+    - inflection
+    - toml
+    - xraylarch
+
+about:
+  home: https://github.com/NSLS-II-BMM
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: Collection metapackage for the NSLS-II BMM beamline
